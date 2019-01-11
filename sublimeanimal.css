@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<h2>Hedgehog Adoption Interest Form</h2>
+<p><span class="error">* required field</span></p>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>  
+  Name: <input type="text" name="name" value="">
+  <span class="error">*</span>
+  <br><br>
+  E-mail: <input type="text" name="email" value="">
+  <span class="error">* <?php echo $emailErr;?></span>
+  <br><br>
+  State: <input type="text" name="website" value="">
+  <span class="error"><?php echo $websiteErr;?></span>
+  <br><br>
+  Why are you interested in adopting a hedgehog?
+  : <textarea name="comment" rows="5" cols="40"></textarea>
+  <br><br>
+  Additional comments: <textarea name="comment" rows="5" cols="40"></textarea>
+  <br><br>
+  <input type="submit" name="submit" value="Submit">  
+  <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <output></output>>Thank you for your interest in adopting one of our beautiful hedgehogs. 
+    A representative will be in touch with you shortly.</title>
+  </head>
+  <body>
+    
+</form>

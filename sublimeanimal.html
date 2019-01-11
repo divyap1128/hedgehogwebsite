@@ -1,0 +1,110 @@
+
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet"type=text/css href="hedgehog.css"></style>
+    <title>
+
+        Hedgehogs
+    </title>
+</head>
+<body>
+    <body style="background: powderblue">
+    <div class="container1"><h1><b><p>Hedgehogs</p></b></h1></div>
+    <div class="container2">
+         <div class="dropdown">
+          <button class="dropbtn"><p><h3>Information About Hedgehogs</h3></p></button>
+          <div class="dropdown-content">
+                <a href="http://www.hedgehogsaspets.com/all-about-hedgehogs/physical-description/" target="_blank"><p>Phsyical Description</p></a>
+            <a href="http://www.hedgehogcare101.com/hedgehog-food-diet/" target="_blank"><p>Diet</p></a>
+            <a href="https://www.hedgehogstreet.org/about-hedgehogs/hibernation/" target="_blank"><p>Hibernation</p></a>
+            <a href="https://www.hedgehogstreet.org/about-hedgehogs/hoglets/" target="_blank"><p>Reproduction</p></a>
+            <a href="https://www.exoticnutrition.com/hedgehog-lifespan.aspx" target="_blank"><p>Lifespan</p></a>
+            <a href="http://www.whateats.com/what-eats-a-hedgehog" target="_blank"><p>Predators and Self Defense</p></a>
+              </div>
+                     <button class="dropbtn"><p><h3>Caring For A Pet Hedgehog </h3></p></button>
+          <button class="dropbtn"><a href="sublimeanimals.html" target=_blank><p><h3>Adopt A Hedgehog Today!</h3></p></a></button></div>
+         
+            </div>
+            <hr>
+            <div class=".img">
+                <img src="https://timedotcom.files.wordpress.com/2017/10/pygmy-hedgehog.jpg?quality=85" style="width: 570px; height: 370px"> </div>
+            </div>
+                <div class="container">
+                <h5><p>COMMON NAME: Hedgehog </p></h5>
+                <h5><p>SCIENTIFIC NAME: Erinaceus europaeus</p></h5>
+                <h5><p>TYPE: Mammals</p></h5>
+                 <h5><p>DIET: Carnivores</p></h5>
+                <h5><p>SIZE: Head and body, 5 to 12 in; tail, 1 to 2 in</p></h5>
+                <h5><p>WEIGHT: 14 to 39 oz</p></h5>
+                <h5><p>SIZE RELATIVE TO A TEACUP:</p></h5>
+                <img src="https://www.nationalgeographic.com/content/dam/animals/graphic/mammals/h/hedgehog_size.gif">
+            </div>
+    </body>
+<?php
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+      $nameErr = "Only letters and white space allowed"; 
+    }
+  }
+  
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "Invalid email format"; 
+    }
+  }
+    
+  if (empty($_POST["website"])) {
+    $website = "";
+  } else {
+    $website = test_input($_POST["website"]);
+    // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
+    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+      $websiteErr = "Invalid URL"; 
+    }
+  }
+
+  if (empty($_POST["comment"])) {
+    $comment = "";
+  } else {
+    $comment = test_input($_POST["comment"]);
+  }
+
+  if (empty($_POST["gender"])) {
+    $genderErr = "Gender is required";
+  } else {
+    $gender = test_input($_POST["gender"]);
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+
+</body>
+</html>
+<div id="wrapper">
+    <hr>
+    
+        <h1 style="margin-left: 490px; margin top: 10px"><p>What is a hedgehog?</p></h1>
+        <h3 style="margin-top: 20px"><p>A hedgehog is any of the spiny mammals of the subfamily Erinaceinae, in the eulipotyphlan family Erinaceidae. There are seventeen species of hedgehog in five genera found through parts of Europe, Asia, and Africa, and in New Zealand.</p></h3>
+    </p>
+</div>
